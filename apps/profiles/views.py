@@ -16,13 +16,13 @@ class AgentListAPIView(generics.ListAPIView):
 
 
 class TopAgentAPIView(generics.ListAPIView):
-    #permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     queryset = Profile.objects.filter(top_agent=True)
     serializer_class = ProfileSerializer
 
 
 class GetProfileAPIView(generics.ListAPIView):
-    #permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     renderer_classes = [ProfileJSONRenderer]
 
     def get(self, request):
@@ -33,7 +33,7 @@ class GetProfileAPIView(generics.ListAPIView):
 
 
 class UpdateProfileAPIView(APIView):
-    #permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     renderer_classes = [ProfileJSONRenderer]
 
     def patch(self, request, username):
